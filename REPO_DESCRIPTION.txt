@@ -1,0 +1,1 @@
+Studio green-light model: TMDB/OMDb pipeline, classification/quantile, decision rubric. Python, scikit-learn, CI.
