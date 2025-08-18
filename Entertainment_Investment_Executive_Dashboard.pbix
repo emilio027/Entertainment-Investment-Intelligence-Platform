@@ -1,0 +1,337 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "title": "Entertainment Investment Intelligence Executive Dashboard",
+    "description": "Comprehensive Power BI dashboard for entertainment industry investment analysis and ROI optimization",
+    "author": "Emilio Cardenas",
+    "created_date": "2025-08-18",
+    "data_sources": ["Box Office Database", "Entertainment APIs", "Social Media Analytics", "Financial Markets"],
+    "refresh_schedule": "Daily 6:00 AM EST"
+  },
+  "pages": [
+    {
+      "name": "Executive Overview",
+      "layout": "dashboard",
+      "visuals": [
+        {
+          "type": "card",
+          "title": "Total Portfolio Value",
+          "measure": "SUM(Portfolio_Value)",
+          "format": "$#,##0,,.0M",
+          "position": {"x": 0, "y": 0, "width": 2, "height": 1}
+        },
+        {
+          "type": "card",
+          "title": "Average ROI",
+          "measure": "AVERAGE(ROI_Percentage)",
+          "format": "0.0%",
+          "position": {"x": 2, "y": 0, "width": 2, "height": 1}
+        },
+        {
+          "type": "card",
+          "title": "Box Office Accuracy",
+          "measure": "AVERAGE(Prediction_Accuracy)",
+          "format": "0.0%",
+          "position": {"x": 4, "y": 0, "width": 2, "height": 1}
+        },
+        {
+          "type": "card",
+          "title": "Active Investments",
+          "measure": "COUNT(Investment_ID)",
+          "format": "#,##0",
+          "position": {"x": 6, "y": 0, "width": 2, "height": 1}
+        },
+        {
+          "type": "line_chart",
+          "title": "Portfolio Performance Over Time",
+          "x_axis": "Date",
+          "y_axis": "Cumulative_ROI",
+          "series": ["Portfolio", "Market_Benchmark"],
+          "position": {"x": 0, "y": 1, "width": 4, "height": 3}
+        },
+        {
+          "type": "donut_chart",
+          "title": "Investment Distribution by Genre",
+          "category": "Genre",
+          "values": "Investment_Amount",
+          "position": {"x": 4, "y": 1, "width": 2, "height": 3}
+        },
+        {
+          "type": "waterfall_chart",
+          "title": "Revenue Breakdown",
+          "categories": ["Box_Office", "Streaming", "Merchandise", "International"],
+          "values": "Revenue_Amount",
+          "position": {"x": 6, "y": 1, "width": 2, "height": 3}
+        }
+      ]
+    },
+    {
+      "name": "Box Office Analytics",
+      "layout": "analytical",
+      "visuals": [
+        {
+          "type": "scatter_chart",
+          "title": "Budget vs Box Office Revenue",
+          "x_axis": "Budget_Million",
+          "y_axis": "Box_Office_Revenue_Million",
+          "size": "Marketing_Spend",
+          "color": "Genre",
+          "position": {"x": 0, "y": 0, "width": 4, "height": 3}
+        },
+        {
+          "type": "bar_chart",
+          "title": "Top 10 Highest ROI Movies",
+          "x_axis": "Movie_Title",
+          "y_axis": "ROI_Percentage",
+          "position": {"x": 4, "y": 0, "width": 4, "height": 3}
+        },
+        {
+          "type": "heatmap",
+          "title": "Performance by Genre and Season",
+          "x_axis": "Release_Season",
+          "y_axis": "Genre",
+          "values": "Average_ROI",
+          "position": {"x": 0, "y": 3, "width": 4, "height": 3}
+        },
+        {
+          "type": "gauge",
+          "title": "Prediction Model Accuracy",
+          "value": "Current_Model_Accuracy",
+          "target": "Target_Accuracy",
+          "min": 0,
+          "max": 100,
+          "position": {"x": 4, "y": 3, "width": 2, "height": 3}
+        },
+        {
+          "type": "table",
+          "title": "Recent Predictions vs Actuals",
+          "columns": ["Movie_Title", "Predicted_Revenue", "Actual_Revenue", "Variance_Percent"],
+          "position": {"x": 6, "y": 3, "width": 2, "height": 3}
+        }
+      ]
+    },
+    {
+      "name": "Risk Management",
+      "layout": "risk_focused",
+      "visuals": [
+        {
+          "type": "treemap",
+          "title": "Portfolio Risk Distribution",
+          "category": "Risk_Category",
+          "values": "Investment_Amount",
+          "position": {"x": 0, "y": 0, "width": 3, "height": 3}
+        },
+        {
+          "type": "line_chart",
+          "title": "Value at Risk (VaR) Trend",
+          "x_axis": "Date",
+          "y_axis": "VaR_95_Percent",
+          "position": {"x": 3, "y": 0, "width": 3, "height": 3}
+        },
+        {
+          "type": "matrix",
+          "title": "Risk-Return Analysis",
+          "rows": "Risk_Level",
+          "columns": "Expected_Return_Range",
+          "values": "Investment_Count",
+          "position": {"x": 6, "y": 0, "width": 2, "height": 3}
+        },
+        {
+          "type": "funnel_chart",
+          "title": "Investment Pipeline by Risk Stage",
+          "categories": ["Development", "Production", "Post_Production", "Distribution", "Release"],
+          "values": "Pipeline_Value",
+          "position": {"x": 0, "y": 3, "width": 4, "height": 3}
+        },
+        {
+          "type": "combo_chart",
+          "title": "Diversification Metrics",
+          "x_axis": "Time_Period",
+          "y1_axis": "Concentration_Risk",
+          "y2_axis": "Sharpe_Ratio",
+          "position": {"x": 4, "y": 3, "width": 4, "height": 3}
+        }
+      ]
+    },
+    {
+      "name": "Market Intelligence",
+      "layout": "market_analysis",
+      "visuals": [
+        {
+          "type": "map",
+          "title": "Global Box Office Performance",
+          "geography": "Country",
+          "values": "Box_Office_Revenue",
+          "position": {"x": 0, "y": 0, "width": 4, "height": 3}
+        },
+        {
+          "type": "clustered_bar_chart",
+          "title": "Competitive Analysis by Studio",
+          "x_axis": "Studio",
+          "y_axis": ["Market_Share", "Average_ROI"],
+          "position": {"x": 4, "y": 0, "width": 4, "height": 3}
+        },
+        {
+          "type": "ribbon_chart",
+          "title": "Genre Popularity Trends",
+          "x_axis": "Year",
+          "y_axis": "Market_Share_Percentage",
+          "series": "Genre",
+          "position": {"x": 0, "y": 3, "width": 4, "height": 3}
+        },
+        {
+          "type": "bullet_chart",
+          "title": "Market Performance vs Targets",
+          "categories": ["Domestic_Box_Office", "International_Revenue", "Streaming_Revenue"],
+          "actual": "Actual_Performance",
+          "target": "Target_Performance",
+          "position": {"x": 4, "y": 3, "width": 4, "height": 3}
+        }
+      ]
+    },
+    {
+      "name": "Streaming & Digital",
+      "layout": "digital_focus",
+      "visuals": [
+        {
+          "type": "stacked_area_chart",
+          "title": "Digital Revenue Growth",
+          "x_axis": "Date",
+          "y_axis": "Revenue",
+          "series": ["Netflix", "Disney_Plus", "Amazon_Prime", "HBO_Max", "Other"],
+          "position": {"x": 0, "y": 0, "width": 4, "height": 3}
+        },
+        {
+          "type": "radar_chart",
+          "title": "Platform Performance Metrics",
+          "metrics": ["Subscriber_Growth", "Content_Quality", "User_Engagement", "Revenue_Per_User", "Market_Share"],
+          "series": ["Our_Content", "Competitor_Average"],
+          "position": {"x": 4, "y": 0, "width": 2, "height": 3}
+        },
+        {
+          "type": "sankey_diagram",
+          "title": "Content Distribution Flow",
+          "source": "Content_Type",
+          "target": "Distribution_Channel",
+          "values": "Revenue_Amount",
+          "position": {"x": 6, "y": 0, "width": 2, "height": 3}
+        },
+        {
+          "type": "histogram",
+          "title": "Viewership Distribution",
+          "x_axis": "View_Count_Millions",
+          "y_axis": "Content_Count",
+          "position": {"x": 0, "y": 3, "width": 3, "height": 3}
+        },
+        {
+          "type": "bubble_chart",
+          "title": "Content Performance Matrix",
+          "x_axis": "Production_Cost",
+          "y_axis": "Streaming_Revenue",
+          "size": "View_Count",
+          "color": "Content_Type",
+          "position": {"x": 3, "y": 3, "width": 5, "height": 3}
+        }
+      ]
+    }
+  ],
+  "data_model": {
+    "tables": [
+      {
+        "name": "Movies",
+        "columns": [
+          {"name": "Movie_ID", "type": "Text", "key": true},
+          {"name": "Title", "type": "Text"},
+          {"name": "Genre", "type": "Text"},
+          {"name": "Budget", "type": "Currency"},
+          {"name": "Box_Office_Revenue", "type": "Currency"},
+          {"name": "Release_Date", "type": "Date"},
+          {"name": "Studio", "type": "Text"},
+          {"name": "Director", "type": "Text"},
+          {"name": "Rating", "type": "Text"}
+        ]
+      },
+      {
+        "name": "Investments",
+        "columns": [
+          {"name": "Investment_ID", "type": "Text", "key": true},
+          {"name": "Movie_ID", "type": "Text", "foreign_key": "Movies.Movie_ID"},
+          {"name": "Investment_Amount", "type": "Currency"},
+          {"name": "Investment_Date", "type": "Date"},
+          {"name": "Expected_ROI", "type": "Percentage"},
+          {"name": "Actual_ROI", "type": "Percentage"},
+          {"name": "Risk_Level", "type": "Text"}
+        ]
+      },
+      {
+        "name": "Predictions",
+        "columns": [
+          {"name": "Prediction_ID", "type": "Text", "key": true},
+          {"name": "Movie_ID", "type": "Text", "foreign_key": "Movies.Movie_ID"},
+          {"name": "Predicted_Revenue", "type": "Currency"},
+          {"name": "Confidence_Interval", "type": "Decimal"},
+          {"name": "Model_Version", "type": "Text"},
+          {"name": "Prediction_Date", "type": "Date"}
+        ]
+      },
+      {
+        "name": "Streaming",
+        "columns": [
+          {"name": "Streaming_ID", "type": "Text", "key": true},
+          {"name": "Movie_ID", "type": "Text", "foreign_key": "Movies.Movie_ID"},
+          {"name": "Platform", "type": "Text"},
+          {"name": "Streaming_Revenue", "type": "Currency"},
+          {"name": "View_Count", "type": "Whole Number"},
+          {"name": "Launch_Date", "type": "Date"}
+        ]
+      }
+    ],
+    "measures": [
+      {
+        "name": "Total_Portfolio_Value",
+        "formula": "SUM(Investments[Investment_Amount])",
+        "format": "$#,##0,,.0M"
+      },
+      {
+        "name": "Average_ROI",
+        "formula": "AVERAGE(Investments[Actual_ROI])",
+        "format": "0.00%"
+      },
+      {
+        "name": "Prediction_Accuracy",
+        "formula": "1 - AVERAGE(ABS(Movies[Box_Office_Revenue] - Predictions[Predicted_Revenue]) / Movies[Box_Office_Revenue])",
+        "format": "0.00%"
+      },
+      {
+        "name": "Sharpe_Ratio",
+        "formula": "DIVIDE([Average_ROI] - 0.02, STDEV.P(Investments[Actual_ROI]))",
+        "format": "0.00"
+      },
+      {
+        "name": "VaR_95",
+        "formula": "PERCENTILE.INC(Investments[Actual_ROI], 0.05)",
+        "format": "0.00%"
+      }
+    ]
+  },
+  "filters": [
+    {"field": "Release_Date", "type": "date_range", "default": "Last_12_Months"},
+    {"field": "Genre", "type": "multi_select", "default": "All"},
+    {"field": "Studio", "type": "multi_select", "default": "All"},
+    {"field": "Risk_Level", "type": "single_select", "default": "All"}
+  ],
+  "refresh_settings": {
+    "auto_refresh": true,
+    "refresh_interval": "1_hour",
+    "data_sources": [
+      {"name": "Box_Office_API", "refresh_type": "incremental"},
+      {"name": "Streaming_Data", "refresh_type": "full"},
+      {"name": "Financial_Markets", "refresh_type": "real_time"}
+    ]
+  },
+  "security": {
+    "row_level_security": true,
+    "user_roles": ["Executive", "Analyst", "Portfolio_Manager"],
+    "data_classification": "Confidential"
+  }
+}
