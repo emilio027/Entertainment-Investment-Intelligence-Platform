@@ -55,6 +55,13 @@
 
 ## 🎬 **Live Platform Demonstrations**
 
+> **🚀 ONE-CLICK INTERACTIVE DEMO:**  
+> **[► LAUNCH LIVE DEMO](https://emilio027.github.io/Entertainment-Investment-Intelligence-Platform/interactive_demo.html)** ← *Click to run immediately*
+> 
+> ✅ **Works on all devices** - Mobile, tablet, desktop  
+> ✅ **Full features preserved** - All visualizations, filters, UI options  
+> ✅ **No downloads required** - Runs instantly in your browser
+
 <div align="center">
   <table>
     <tr>
@@ -194,7 +201,7 @@ cd Entertainment-Investment-Intelligence-Platform
 docker-compose up -d
 
 # 3. Access platform
-# 🎬 Demo: Open interactive_demo.html
+# 🎬 Demo: Open interactive_demo.html (Download & open in browser to view)
 # 📊 Dashboard: http://localhost:8080
 # 🔗 API: http://localhost:8080/api/docs
 ```
@@ -259,7 +266,7 @@ docker-compose up -d
 ### 🚀 **Quick Access**
 | Resource | Description | Link |
 |----------|-------------|------|
-| 🎬 **Live Demo** | Interactive entertainment demonstration | [Demo](interactive_demo.html) |
+| 🎬 **Live Demo** | Interactive entertainment demonstration | [► LAUNCH DEMO](https://emilio027.github.io/Entertainment-Investment-Intelligence-Platform/interactive_demo.html) |
 | 📋 **Business Case** | ROI analysis and value proposition | [ROI Analysis](Business_Impact/ROI_Analysis.md) |
 | 🚀 **Quick Start** | Get running in 5 minutes | [Installation Guide](Quick_Start/Installation_Guide.md) |
 | 🔧 **Technical Docs** | Developer documentation | [Technical/Documentation/](Technical/Documentation/) |
