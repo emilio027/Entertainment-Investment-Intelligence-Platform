@@ -1,4 +1,4 @@
-# 🎬 Entertainment Investment Intelligence Platform
+# ◎ Entertainment Investment Intelligence Platform
 
 <div align="center">
   <img src="https://img.shields.io/badge/ROI-32%25-green?style=for-the-badge&logo=trending-up&logoColor=white" alt="ROI">
@@ -8,15 +8,15 @@
 </div>
 
 <div align="center">
-  <h3>🚀 AI-Powered Entertainment Investment Intelligence</h3>
+  <h3>◆ AI-Powered Entertainment Investment Intelligence</h3>
   <p><em>Professional-grade content analytics delivering superior entertainment investment returns</em></p>
 </div>
 
 ---
 
-## 🎯 Executive Summary
+## ◉ Executive Summary
 
-**🏆 Business Impact**: Comprehensive entertainment industry investment platform delivering **32% average ROI** through data-driven content analysis, talent evaluation, and market prediction algorithms managing **$75M+** in entertainment investments across film, TV, streaming, and digital content.
+**◇ Business Impact**: Comprehensive entertainment industry investment platform delivering **32% average ROI** through data-driven content analysis, talent evaluation, and market prediction algorithms managing **$75M+** in entertainment investments across film, TV, streaming, and digital content.
 
 <div align="center">
   <table>
