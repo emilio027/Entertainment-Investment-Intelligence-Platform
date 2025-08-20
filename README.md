@@ -58,7 +58,7 @@
 > **🚀 EXECUTIVE-READY INTERACTIVE DEMOS:**  
 > 
 > **Option 1 - Instant Preview** *(Recommended for C-Suite)*  
-> **[► LAUNCH LIVE DEMO](https://htmlpreview.github.io/?https://github.com/emilio027/Entertainment-Investment-Intelligence-Platform/blob/master/interactive_demo.html)** ← *One-click access*
+> **[► LAUNCH LIVE DEMO](https://emilio027.github.io/Entertainment-Investment-Intelligence-Platform/)** ← *One-click access*
 > 
 > **Option 2 - Direct Access** *(Technical Teams)*  
 > **[► DOWNLOAD & OPEN](https://github.com/emilio027/Entertainment-Investment-Intelligence-Platform/blob/master/interactive_demo.html)** → *Right-click → Save → Open in browser*
@@ -281,7 +281,7 @@ docker-compose up -d
 ### 🚀 **Quick Access**
 | Resource | Description | Link |
 |----------|-------------|------|
-| 🎬 **Live Demo** | Interactive entertainment demonstration | [► LAUNCH DEMO](https://htmlpreview.github.io/?https://github.com/emilio027/Entertainment-Investment-Intelligence-Platform/blob/master/interactive_demo.html) |
+| 🎬 **Live Demo** | Interactive entertainment demonstration | [► LAUNCH DEMO](https://emilio027.github.io/Entertainment-Investment-Intelligence-Platform/) |
 | 📋 **Business Case** | ROI analysis and value proposition | [ROI Analysis](Business_Impact/ROI_Analysis.md) |
 | 🚀 **Quick Start** | Get running in 5 minutes | [Installation Guide](Quick_Start/Installation_Guide.md) |
 | 🔧 **Technical Docs** | Developer documentation | [Technical/Documentation/](Technical/Documentation/) |

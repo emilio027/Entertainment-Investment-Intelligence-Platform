@@ -3,7 +3,7 @@ Entertainment Investment Intelligence Platform - Advanced Analytics Engine
 Deep Learning System for Box Office Prediction and ROI Optimization
 
 Author: Emilio Cardenas
-Institution: MIT PhD AI Automation | Harvard MBA
+Organization: Entertainment Investment Intelligence Platform
 Version: 2.0.0 Enterprise
 License: Proprietary
 """
@@ -412,7 +412,7 @@ def main():
     print("=" * 80)
     print("Entertainment Investment Intelligence Platform")
     print("Advanced Machine Learning for Box Office Prediction & ROI Optimization")
-    print("Author: Emilio Cardenas | MIT PhD AI Automation | Harvard MBA")
+    print("Author: Emilio Cardenas | Principal Data Scientist")
     print("=" * 80)
     
     # Initialize platform
