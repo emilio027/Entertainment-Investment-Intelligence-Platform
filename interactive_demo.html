@@ -3,496 +3,981 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entertainment Investment Intelligence Platform - Interactive Demo</title>
+    <title>Entertainment Investment Intelligence | Executive Analytics Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
     <style>
-        * {
+        /* Design System Variables - Based on Pinterest Aesthetic */
+        :root {
+            /* Monochromatic Core Palette */
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-gray-50: #FAFAFA;
+            --color-gray-100: #F5F5F5;
+            --color-gray-200: #EEEEEE;
+            --color-gray-300: #E0E0E0;
+            --color-gray-400: #BDBDBD;
+            --color-gray-500: #9E9E9E;
+            --color-gray-600: #757575;
+            --color-gray-700: #616161;
+            --color-gray-800: #424242;
+            --color-gray-900: #212121;
+            
+            /* Strategic Accent Colors */
+            --color-accent-primary: #FF3B30;
+            --color-accent-blue: #007AFF;
+            --color-accent-green: #34C759;
+            --color-accent-orange: #FF9500;
+            --color-accent-purple: #AF52DE;
+            
+            /* Typography System */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-weight-light: 300;
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+            --font-weight-black: 900;
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;      /* 12px */
+            --text-sm: 0.875rem;     /* 14px */
+            --text-base: 1rem;       /* 16px */
+            --text-lg: 1.125rem;     /* 18px */
+            --text-xl: 1.25rem;      /* 20px */
+            --text-2xl: 1.5rem;      /* 24px */
+            --text-3xl: 1.875rem;    /* 30px */
+            --text-4xl: 2.25rem;     /* 36px */
+            --text-5xl: 3rem;        /* 48px */
+            --text-6xl: 3.75rem;     /* 60px */
+            
+            /* Spacing System - 8pt Grid */
+            --spacing-1: 0.125rem;   /* 2px */
+            --spacing-2: 0.25rem;    /* 4px */
+            --spacing-3: 0.375rem;   /* 6px */
+            --spacing-4: 0.5rem;     /* 8px */
+            --spacing-5: 0.625rem;   /* 10px */
+            --spacing-6: 0.75rem;    /* 12px */
+            --spacing-8: 1rem;       /* 16px */
+            --spacing-10: 1.25rem;   /* 20px */
+            --spacing-12: 1.5rem;    /* 24px */
+            --spacing-16: 2rem;      /* 32px */
+            --spacing-20: 2.5rem;    /* 40px */
+            --spacing-24: 3rem;      /* 48px */
+            --spacing-32: 4rem;      /* 64px */
+            --spacing-40: 5rem;      /* 80px */
+            --spacing-48: 6rem;      /* 96px */
+            --spacing-64: 8rem;      /* 128px */
+            
+            /* Shadow System */
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            
+            /* Border Radius */
+            --radius-sm: 0.125rem;    /* 2px */
+            --radius-md: 0.375rem;    /* 6px */
+            --radius-lg: 0.5rem;      /* 8px */
+            --radius-xl: 0.75rem;     /* 12px */
+            --radius-2xl: 1rem;       /* 16px */
+            
+            /* Transitions */
+            --transition-fast: 150ms ease-out;
+            --transition-base: 250ms ease-out;
+            --transition-slow: 350ms ease-out;
+        }
+
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-regular);
+            color: var(--color-gray-900);
+            background-color: var(--color-white);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            color: white;
-        }
-
-        .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .demo-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .demo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .demo-card h3 {
-            color: #667eea;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .demo-card .icon {
-            font-size: 2em;
-            margin-right: 15px;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .metric {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .metric-label {
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-
-        .interactive-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .chart-container {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(45deg, #f0f2f5, #e1e8ed);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .chart-placeholder {
-            text-align: center;
-            color: #666;
-        }
-
-        .animated-bar {
-            position: absolute;
-            bottom: 0;
-            background: linear-gradient(to top, #667eea, #764ba2);
-            border-radius: 5px 5px 0 0;
-            animation: growBar 2s ease-out;
-        }
-
-        @keyframes growBar {
-            from { height: 0; }
-            to { height: var(--bar-height); }
-        }
-
-        .bar1 { left: 10%; width: 60px; --bar-height: 60%; }
-        .bar2 { left: 25%; width: 60px; --bar-height: 80%; }
-        .bar3 { left: 40%; width: 60px; --bar-height: 45%; }
-        .bar4 { left: 55%; width: 60px; --bar-height: 95%; }
-        .bar5 { left: 70%; width: 60px; --bar-height: 70%; }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
-
-        .feature-icon {
-            margin-right: 15px;
-            font-size: 1.2em;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            margin: 10px 0;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .modal {
-            display: none;
+        /* Navigation */
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .navbar-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: var(--spacing-4) var(--spacing-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-size: var(--text-xl);
+            font-weight: var(--font-weight-black);
+            color: var(--color-black);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-8);
+        }
+
+        .navbar-link {
+            color: var(--color-gray-600);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            font-size: var(--text-sm);
+            transition: var(--transition-fast);
+        }
+
+        .navbar-link:hover {
+            color: var(--color-black);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: var(--spacing-24);
+            padding-bottom: var(--spacing-32);
+            background: var(--color-white);
+        }
+
+        .hero-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-8);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: var(--text-6xl);
+            font-weight: var(--font-weight-black);
+            color: var(--color-black);
+            letter-spacing: -0.04em;
+            margin-bottom: var(--spacing-6);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: var(--text-xl);
+            font-weight: var(--font-weight-regular);
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-12);
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-8);
+            margin-top: var(--spacing-16);
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: var(--spacing-8);
+        }
+
+        .metric-value {
+            display: block;
+            font-size: var(--text-4xl);
+            font-weight: var(--font-weight-black);
+            color: var(--color-black);
+            letter-spacing: -0.02em;
+        }
+
+        .metric-label {
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: var(--spacing-2);
+        }
+
+        /* Dashboard Container */
+        .dashboard {
+            padding: var(--spacing-32) 0;
+            background: var(--color-gray-50);
+        }
+
+        .dashboard-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-8);
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: var(--spacing-20);
+        }
+
+        .dashboard-title {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-weight-black);
+            color: var(--color-black);
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .dashboard-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-12);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-6);
+            align-items: end;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-2);
+        }
+
+        .control-label {
+            font-size: var(--text-xs);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-700);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .control-select,
+        .control-input {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-3) var(--spacing-4);
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-gray-900);
+            transition: var(--transition-fast);
+        }
+
+        .control-select:focus,
+        .control-input:focus {
+            outline: none;
+            border-color: var(--color-accent-primary);
+            box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+        }
+
+        .control-button {
+            background: var(--color-black);
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-3) var(--spacing-6);
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-white);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .control-button:hover {
+            background: var(--color-gray-800);
+            transform: translateY(-1px);
+        }
+
+        /* Visualization Grid */
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .viz-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+
+        .viz-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .viz-header {
+            padding: var(--spacing-6) var(--spacing-8);
+            border-bottom: 1px solid var(--color-gray-200);
+            background: var(--color-white);
+        }
+
+        .viz-title {
+            font-size: var(--text-lg);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-black);
+            margin: 0;
+        }
+
+        .viz-content {
+            padding: var(--spacing-8);
+            height: 400px;
+            position: relative;
+        }
+
+        /* Data Table */
+        .data-table-container {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: var(--color-gray-50);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: var(--spacing-4) var(--spacing-6);
+            text-align: left;
+            font-size: var(--text-xs);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-gray-700);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: var(--spacing-4) var(--spacing-6);
+            border-bottom: 1px solid var(--color-gray-100);
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-gray-900);
+        }
+
+        .data-table tr:hover {
+            background: var(--color-gray-50);
+            cursor: pointer;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Status Indicators */
+        .status-positive {
+            color: var(--color-accent-green);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .status-negative {
+            color: var(--color-accent-primary);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .status-neutral {
+            color: var(--color-accent-orange);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
+            background: var(--color-white);
+            margin: 5% auto;
+            border-radius: var(--radius-2xl);
+            width: 90%;
             max-width: 800px;
             max-height: 80vh;
             overflow-y: auto;
+            box-shadow: var(--shadow-xl);
         }
 
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2em;
+        .modal-header {
+            padding: var(--spacing-8);
+            border-bottom: 1px solid var(--color-gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-black);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: var(--text-2xl);
+            color: var(--color-gray-500);
             cursor: pointer;
-            color: #999;
+            padding: var(--spacing-2);
+            transition: var(--transition-fast);
         }
 
-        .close:hover {
-            color: #333;
+        .modal-close:hover {
+            color: var(--color-black);
         }
 
-        .talent-score {
+        .modal-body {
+            padding: var(--spacing-8);
+        }
+
+        /* Loading Animation */
+        .loading {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin: 5px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--color-gray-300);
+            border-radius: 50%;
+            border-top-color: var(--color-black);
+            animation: spin 0.8s linear infinite;
         }
 
-        .prediction-chart {
-            background: linear-gradient(45deg, #667eea20, #764ba220);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 15px 0;
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
-        @media (max-width: 768px) {
-            .demo-grid {
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .viz-grid {
                 grid-template-columns: 1fr;
             }
             
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .metrics-grid {
+            .hero-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: var(--text-4xl);
+            }
+            
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .control-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .navbar-menu {
+                display: none;
+            }
+        }
+
+        /* Chart.js Customizations */
+        .chart-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎬 Entertainment Investment Intelligence</h1>
-            <p>Interactive Platform Demonstration</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">ENTERTAINMENT INTELLIGENCE</a>
+            <ul class="navbar-menu">
+                <li><a href="#dashboard" class="navbar-link">DASHBOARD</a></li>
+                <li><a href="#content" class="navbar-link">CONTENT</a></li>
+                <li><a href="#talent" class="navbar-link">TALENT</a></li>
+                <li><a href="#markets" class="navbar-link">MARKETS</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="demo-grid">
-            <div class="demo-card" onclick="openModal('investmentModal')">
-                <h3><span class="icon">📈</span>Investment Dashboard</h3>
-                <p>Real-time portfolio performance monitoring with 32% average ROI across $75M+ in entertainment investments.</p>
-                <div class="metrics-grid">
-                    <div class="metric">
-                        <div class="metric-value">32%</div>
-                        <div class="metric-label">Average ROI</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">ENTERTAINMENT INVESTMENT INTELLIGENCE</h1>
+                <p class="hero-subtitle">Comprehensive content analytics and investment intelligence platform managing $75M+ in entertainment portfolios with advanced AI-powered insights</p>
+                
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <span class="metric-value">32%</span>
+                        <span class="metric-label">Average ROI</span>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">$75M</div>
-                        <div class="metric-label">Portfolio AUM</div>
+                    <div class="metric-item">
+                        <span class="metric-value">87%</span>
+                        <span class="metric-label">Prediction Accuracy</span>
                     </div>
-                </div>
-                <button class="btn">Explore Investment Analytics</button>
-            </div>
-
-            <div class="demo-card" onclick="openModal('contentModal')">
-                <h3><span class="icon">🎬</span>Content Performance Analytics</h3>
-                <p>Box office prediction with 87% accuracy and comprehensive streaming performance modeling.</p>
-                <div class="chart-container">
-                    <div class="chart-placeholder">Box Office Prediction Accuracy</div>
-                    <div class="animated-bar bar1"></div>
-                    <div class="animated-bar bar2"></div>
-                    <div class="animated-bar bar3"></div>
-                    <div class="animated-bar bar4"></div>
-                    <div class="animated-bar bar5"></div>
-                </div>
-                <button class="btn">View Content Analytics</button>
-            </div>
-
-            <div class="demo-card" onclick="openModal('talentModal')">
-                <h3><span class="icon">⭐</span>Talent Valuation System</h3>
-                <p>AI-powered talent assessment with bankability scoring and career trajectory analysis.</p>
-                <div class="prediction-chart">
-                    <strong>Top Talent Scores:</strong><br>
-                    <span class="talent-score">Ryan Reynolds: 94</span>
-                    <span class="talent-score">Margot Robbie: 91</span>
-                    <span class="talent-score">Dwayne Johnson: 96</span>
-                </div>
-                <button class="btn">Analyze Talent Value</button>
-            </div>
-
-            <div class="demo-card" onclick="openModal('marketModal')">
-                <h3><span class="icon">🌍</span>Market Intelligence Hub</h3>
-                <p>Global market analysis across 50+ countries with demographic trends and cultural preferences.</p>
-                <div class="metrics-grid">
-                    <div class="metric">
-                        <div class="metric-value">50+</div>
-                        <div class="metric-label">Global Markets</div>
+                    <div class="metric-item">
+                        <span class="metric-value">$75M+</span>
+                        <span class="metric-label">Assets Under Management</span>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">91%</div>
-                        <div class="metric-label">Risk Assessment</div>
+                    <div class="metric-item">
+                        <span class="metric-value">78%</span>
+                        <span class="metric-label">Faster Analysis</span>
                     </div>
                 </div>
-                <button class="btn">Explore Market Data</button>
             </div>
         </div>
+    </section>
 
-        <div class="interactive-section">
-            <h2>🚀 Key Performance Indicators</h2>
-            <div class="metrics-grid">
-                <div class="metric">
-                    <div class="metric-value">420%</div>
-                    <div class="metric-label">Technology ROI</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">78%</div>
-                    <div class="metric-label">Faster Due Diligence</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">$12M</div>
-                    <div class="metric-label">Annual Savings</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">26%</div>
-                    <div class="metric-label">Portfolio Performance</div>
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">EXECUTIVE DASHBOARD</h2>
+                <p class="dashboard-subtitle">Real-time entertainment investment analytics with predictive modeling and comprehensive market intelligence across global entertainment markets</p>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <div class="control-grid">
+                    <div class="control-group">
+                        <label class="control-label">Content Focus</label>
+                        <select id="content-select" class="control-select">
+                            <option value="all">All Entertainment</option>
+                            <option value="film">Film Production</option>
+                            <option value="tv">Television Series</option>
+                            <option value="streaming">Streaming Content</option>
+                            <option value="digital">Digital/Short Form</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Market Region</label>
+                        <select id="region-select" class="control-select">
+                            <option value="global">Global Markets</option>
+                            <option value="north-america">North America</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia-pacific">Asia-Pacific</option>
+                            <option value="emerging">Emerging Markets</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Time Period</label>
+                        <select id="period-select" class="control-select">
+                            <option value="ytd">Year to Date</option>
+                            <option value="12m">Last 12 Months</option>
+                            <option value="24m">Last 24 Months</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Analysis</label>
+                        <button class="control-button" onclick="generateAnalysis()">Generate Report</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Investment Modal -->
-    <div id="investmentModal" class="modal">
+            <!-- Visualization Grid -->
+            <div class="viz-grid">
+                <div class="viz-card">
+                    <div class="viz-header">
+                        <h3 class="viz-title">Investment Portfolio Performance</h3>
+                    </div>
+                    <div class="viz-content">
+                        <canvas id="portfolio-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="viz-card">
+                    <div class="viz-header">
+                        <h3 class="viz-title">Box Office Prediction Accuracy</h3>
+                    </div>
+                    <div class="viz-content">
+                        <canvas id="accuracy-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="viz-card">
+                    <div class="viz-header">
+                        <h3 class="viz-title">Global Market Distribution</h3>
+                    </div>
+                    <div class="viz-content">
+                        <canvas id="market-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="viz-card">
+                    <div class="viz-header">
+                        <h3 class="viz-title">Talent Performance Metrics</h3>
+                    </div>
+                    <div class="viz-content">
+                        <canvas id="talent-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="data-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Production Title</th>
+                            <th>Genre</th>
+                            <th>Investment</th>
+                            <th>Predicted Revenue</th>
+                            <th>Actual Revenue</th>
+                            <th>ROI</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="entertainment-table-body">
+                        <tr onclick="showEntertainmentDetail('avatarway')">
+                            <td><strong>Avatar: The Way of Water</strong></td>
+                            <td>Sci-Fi/Action</td>
+                            <td>$45M</td>
+                            <td>$2.15B</td>
+                            <td>$2.32B</td>
+                            <td class="status-positive">+47.8%</td>
+                            <td class="status-positive">Outperformed</td>
+                        </tr>
+                        <tr onclick="showEntertainmentDetail('topgun')">
+                            <td><strong>Top Gun: Maverick</strong></td>
+                            <td>Action/Drama</td>
+                            <td>$35M</td>
+                            <td>$1.45B</td>
+                            <td>$1.49B</td>
+                            <td class="status-positive">+41.4%</td>
+                            <td class="status-positive">Exceeded Target</td>
+                        </tr>
+                        <tr onclick="showEntertainmentDetail('spiderman')">
+                            <td><strong>Spider-Man: No Way Home</strong></td>
+                            <td>Superhero/Action</td>
+                            <td>$28M</td>
+                            <td>$1.85B</td>
+                            <td>$1.92B</td>
+                            <td class="status-positive">+65.7%</td>
+                            <td class="status-positive">Major Success</td>
+                        </tr>
+                        <tr onclick="showEntertainmentDetail('barbie')">
+                            <td><strong>Barbie</strong></td>
+                            <td>Comedy/Fantasy</td>
+                            <td>$22M</td>
+                            <td>$1.35B</td>
+                            <td>$1.45B</td>
+                            <td class="status-positive">+59.1%</td>
+                            <td class="status-positive">Phenomenon</td>
+                        </tr>
+                        <tr onclick="showEntertainmentDetail('oppenheimer')">
+                            <td><strong>Oppenheimer</strong></td>
+                            <td>Biography/Drama</td>
+                            <td>$18M</td>
+                            <td>$875M</td>
+                            <td>$952M</td>
+                            <td class="status-positive">+48.6%</td>
+                            <td class="status-positive">Premium Success</td>
+                        </tr>
+                        <tr onclick="showEntertainmentDetail('house-dragon')">
+                            <td><strong>House of the Dragon S1</strong></td>
+                            <td>Fantasy/Drama</td>
+                            <td>$15M</td>
+                            <td>$1.2B Value</td>
+                            <td>$1.5B Value</td>
+                            <td class="status-positive">+95.0%</td>
+                            <td class="status-positive">Franchise Builder</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Entertainment Detail -->
+    <div id="entertainment-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>📈 Investment Dashboard</h2>
-            <p><strong>Portfolio Overview:</strong> Comprehensive investment tracking across film, TV, streaming, and digital content with real-time performance monitoring.</p>
-            
-            <h3>Current Portfolio Breakdown:</h3>
-            <ul class="feature-list">
-                <li><span class="feature-icon">🎬</span><strong>Film Investments:</strong> 38.5% ROI (vs 16% industry avg)</li>
-                <li><span class="feature-icon">📺</span><strong>TV Series:</strong> 42.1% ROI across premium content</li>
-                <li><span class="feature-icon">📱</span><strong>Streaming Content:</strong> 29.8% ROI on platform exclusives</li>
-                <li><span class="feature-icon">💫</span><strong>Digital/Short Form:</strong> 51.2% ROI on viral content</li>
-            </ul>
-
-            <div class="chart-container">
-                <div class="chart-placeholder">
-                    <strong>Investment Performance Trends</strong><br>
-                    Real-time portfolio value tracking with risk-adjusted returns
-                </div>
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Entertainment Analysis</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
             </div>
-        </div>
-    </div>
-
-    <!-- Content Modal -->
-    <div id="contentModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>🎬 Content Performance Analytics</h2>
-            <p><strong>Advanced Prediction Engine:</strong> 87% accuracy in box office revenue predictions using machine learning and alternative data sources.</p>
-            
-            <h3>Analytics Capabilities:</h3>
-            <ul class="feature-list">
-                <li><span class="feature-icon">🎯</span><strong>Box Office Prediction:</strong> 87% accuracy within 15% margin</li>
-                <li><span class="feature-icon">📺</span><strong>Streaming Views:</strong> 84% accuracy for first 30 days</li>
-                <li><span class="feature-icon">🏆</span><strong>Award Nominations:</strong> 92% accuracy for major categories</li>
-                <li><span class="feature-icon">⭐</span><strong>Critical Reception:</strong> 89% accuracy for Rotten Tomatoes scores</li>
-                <li><span class="feature-icon">👥</span><strong>Audience Sentiment:</strong> 94% accuracy for opening weekend</li>
-            </ul>
-
-            <div class="prediction-chart">
-                <strong>Recent Predictions vs Actual:</strong><br>
-                Spider-Man: No Way Home - Predicted: $1.85B, Actual: $1.92B ✅<br>
-                Top Gun: Maverick - Predicted: $1.45B, Actual: $1.49B ✅<br>
-                Avatar: The Way of Water - Predicted: $2.15B, Actual: $2.32B ✅
-            </div>
-        </div>
-    </div>
-
-    <!-- Talent Modal -->
-    <div id="talentModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>⭐ Talent Valuation System</h2>
-            <p><strong>AI-Powered Assessment:</strong> Comprehensive talent evaluation using bankability algorithms, social media analytics, and career trajectory modeling.</p>
-            
-            <h3>Valuation Factors:</h3>
-            <ul class="feature-list">
-                <li><span class="feature-icon">💰</span><strong>Box Office Performance:</strong> Historical revenue generation</li>
-                <li><span class="feature-icon">📱</span><strong>Social Media Reach:</strong> Cross-platform influence metrics</li>
-                <li><span class="feature-icon">🏆</span><strong>Award Potential:</strong> Recognition probability modeling</li>
-                <li><span class="feature-icon">🌍</span><strong>Global Appeal:</strong> International market penetration</li>
-                <li><span class="feature-icon">📈</span><strong>Career Trajectory:</strong> Performance trend analysis</li>
-            </ul>
-
-            <div class="prediction-chart">
-                <strong>Sample Talent Analytics:</strong><br>
-                <span class="talent-score">Tom Holland: 89 (Rising Star)</span><br>
-                <span class="talent-score">Zendaya: 92 (Peak Performance)</span><br>
-                <span class="talent-score">Chris Hemsworth: 88 (Stable Value)</span><br>
-                <span class="talent-score">Anya Taylor-Joy: 94 (Breakout Potential)</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Market Modal -->
-    <div id="marketModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>🌍 Market Intelligence Hub</h2>
-            <p><strong>Global Market Analysis:</strong> Comprehensive intelligence across 50+ countries with demographic trends, cultural preferences, and market opportunities.</p>
-            
-            <h3>Market Intelligence Features:</h3>
-            <ul class="feature-list">
-                <li><span class="feature-icon">🗺️</span><strong>Geographic Analysis:</strong> Market size and growth potential by region</li>
-                <li><span class="feature-icon">👥</span><strong>Demographic Trends:</strong> Age, gender, income audience segmentation</li>
-                <li><span class="feature-icon">🎨</span><strong>Cultural Preferences:</strong> Local content consumption patterns</li>
-                <li><span class="feature-icon">📊</span><strong>Platform Analytics:</strong> Distribution channel optimization</li>
-                <li><span class="feature-icon">⏰</span><strong>Release Timing:</strong> Optimal launch windows and competition analysis</li>
-            </ul>
-
-            <div class="metrics-grid">
-                <div class="metric">
-                    <div class="metric-value">$45B</div>
-                    <div class="metric-label">Global Market Size</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">15%</div>
-                    <div class="metric-label">Annual Growth Rate</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">500+</div>
-                    <div class="metric-label">Markets Analyzed</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">91%</div>
-                    <div class="metric-label">Prediction Accuracy</div>
-                </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be populated by JavaScript -->
             </div>
         </div>
     </div>
 
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-        }
-
-        // Close modals when clicking the close button or outside the modal
-        document.addEventListener('click', function(event) {
-            if (event.target.classList.contains('modal') || event.target.classList.contains('close')) {
-                const modals = document.querySelectorAll('.modal');
-                modals.forEach(modal => modal.style.display = 'none');
-            }
-        });
-
-        // Animate metrics on scroll
-        function animateMetrics() {
-            const metrics = document.querySelectorAll('.metric-value');
-            metrics.forEach(metric => {
-                const finalValue = metric.textContent;
-                const numericValue = parseInt(finalValue.replace(/\D/g, ''));
-                if (numericValue) {
-                    let currentValue = 0;
-                    const increment = numericValue / 50;
-                    const timer = setInterval(() => {
-                        currentValue += increment;
-                        if (currentValue >= numericValue) {
-                            metric.textContent = finalValue;
-                            clearInterval(timer);
-                        } else {
-                            metric.textContent = Math.floor(currentValue) + finalValue.replace(/\d/g, '').substring(0, 1);
+        // Initialize Charts
+        function initializeCharts() {
+            // Portfolio Performance Chart
+            const portfolioCtx = document.getElementById('portfolio-chart').getContext('2d');
+            new Chart(portfolioCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024'],
+                    datasets: [{
+                        label: 'Portfolio ROI (%)',
+                        data: [18, 24, 28, 32, 35, 38],
+                        borderColor: '#000000',
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
                         }
-                    }, 40);
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#E0E0E0'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: '#E0E0E0'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Box Office Accuracy Chart
+            const accuracyCtx = document.getElementById('accuracy-chart').getContext('2d');
+            new Chart(accuracyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Accurate Predictions', 'Margin of Error'],
+                    datasets: [{
+                        data: [87, 13],
+                        backgroundColor: ['#000000', '#E0E0E0'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Global Market Chart
+            const marketCtx = document.getElementById('market-chart').getContext('2d');
+            new Chart(marketCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['North America', 'Europe', 'Asia-Pacific', 'Latin America', 'Middle East/Africa'],
+                    datasets: [{
+                        label: 'Revenue ($M)',
+                        data: [2850, 1920, 3200, 680, 450],
+                        backgroundColor: ['#000000', '#424242', '#757575', '#9E9E9E', '#BDBDBD'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#E0E0E0'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Talent Performance Chart
+            const talentCtx = document.getElementById('talent-chart').getContext('2d');
+            new Chart(talentCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Box Office', 'Social Media', 'Awards', 'Global Appeal', 'Career Trajectory'],
+                    datasets: [{
+                        label: 'Ryan Reynolds',
+                        data: [94, 88, 76, 92, 89],
+                        borderColor: '#000000',
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        borderWidth: 2
+                    }, {
+                        label: 'Margot Robbie',
+                        data: [91, 95, 88, 94, 96],
+                        borderColor: '#757575',
+                        backgroundColor: 'rgba(117, 117, 117, 0.1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: '#E0E0E0'
+                            }
+                        }
+                    }
                 }
             });
         }
 
-        // Start animations when page loads
+        // Modal Functions
+        function showEntertainmentDetail(id) {
+            const modal = document.getElementById('entertainment-modal');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+
+            const data = {
+                'avatarway': {
+                    title: 'Avatar: The Way of Water - Deep Dive Analysis',
+                    content: `
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                            <div style="background: #FAFAFA; padding: 1rem; border-radius: 8px;">
+                                <strong>Investment Performance</strong><br>
+                                Initial Investment: $45M<br>
+                                Predicted Revenue: $2.15B<br>
+                                Actual Revenue: $2.32B<br>
+                                ROI: +47.8%
+                            </div>
+                            <div style="background: #FAFAFA; padding: 1rem; border-radius: 8px;">
+                                <strong>Market Analysis</strong><br>
+                                Global Box Office: $2.32B<br>
+                                Domestic: $684M<br>
+                                International: $1.636B<br>
+                                China Market: $254M
+                            </div>
+                        </div>
+                        <p><strong>Investment Thesis:</strong> Sequel to highest-grossing film of all time with James Cameron directing and advanced underwater filming technology. Strong franchise potential with planned sequels through 2028.</p>
+                        <p><strong>Key Success Factors:</strong> Premium 3D/IMAX experience, visual effects innovation, established fan base, and strategic holiday release timing.</p>
+                    `
+                },
+                'topgun': {
+                    title: 'Top Gun: Maverick - Executive Analysis',
+                    content: `
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                            <div style="background: #FAFAFA; padding: 1rem; border-radius: 8px;">
+                                <strong>Investment Metrics</strong><br>
+                                Initial Investment: $35M<br>
+                                Total Production Cost: $170M<br>
+                                Global Revenue: $1.49B<br>
+                                ROI: +41.4%
+                            </div>
+                            <div style="background: #FAFAFA; padding: 1rem; border-radius: 8px;">
+                                <strong>Audience Demographics</strong><br>
+                                Age 35+: 58%<br>
+                                Premium Format: 72%<br>
+                                Repeat Viewings: 34%<br>
+                                International: 52%
+                            </div>
+                        </div>
+                        <p><strong>Strategic Investment:</strong> Legacy sequel with Tom Cruise star power, practical effects emphasis, and nostalgia-driven marketing strategy targeting both original fans and new audiences.</p>
+                        <p><strong>Risk Mitigation:</strong> Extensive test screenings, premium format optimization, and strategic summer release positioning away from major franchise competition.</p>
+                    `
+                }
+            };
+
+            const item = data[id] || {
+                title: 'Entertainment Analysis',
+                content: '<p>Detailed analysis and investment metrics for this entertainment property.</p>'
+            };
+
+            title.textContent = item.title;
+            body.innerHTML = item.content;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('entertainment-modal').style.display = 'none';
+        }
+
+        function generateAnalysis() {
+            const content = document.getElementById('content-select').value;
+            const region = document.getElementById('region-select').value;
+            const period = document.getElementById('period-select').value;
+            
+            alert(`Generating analysis for:\nContent: ${content}\nRegion: ${region}\nPeriod: ${period}\n\nReport will be available in dashboard within 2-3 minutes.`);
+        }
+
+        // Initialize on page load
         window.addEventListener('load', () => {
-            setTimeout(animateMetrics, 500);
+            setTimeout(initializeCharts, 500);
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('entertainment-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
         });
     </script>
 </body>
